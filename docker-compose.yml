@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  website:
+    build: website/
+    ports:
+      - 127.0.0.1:8080:3001
+    volumes:
+      - ./website:/app
+    restart: always
+    env_file:
+      - ./website/.env
+
+volumes:
+  data:
