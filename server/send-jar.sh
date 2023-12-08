@@ -1,0 +1,1 @@
+rsync -avz target/ndi-1.0.0.jar zertus.fr:/home/zertus/ndi/data/ndi.jar
