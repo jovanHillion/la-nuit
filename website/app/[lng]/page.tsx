@@ -2,11 +2,12 @@
 import { Logo, LogoWithoutText } from "@/components/icons";
 import { HomeLottieFile } from "@/components/homeLottie";
 import { GradeContainer } from "@/components/grade";
+import NewsCard from "@/components/newsCard";
 
 export default function Home() {
   return (
     
-    <div>
+    <div className="pt-[30%] h-full">
       <div className="flex justify-between h-full pt-[15%]">
         <div className="">
           <div className="flex flex-row w-[100%] space-x-[650px]">
@@ -32,9 +33,14 @@ export default function Home() {
       <div className="mt-[5%] mb-[5%]">
         <button className="bg-primary-500 hover:bg-primary-700 w-[139px] h-[62px] rounded-[25px] text-[28px] font-bold">Quizz</button>
       </div>
-	  <div className="bg-primary-600 h-full w-full">
+	  <div className="bg-primary-600 h-full w-full py-[2%]">
 			<div className="flex justify-center text-primary-900 font-bold text-[38px]">
 				News
+			</div>
+			<div className="flex flex-row justify-around">
+			<NewsCard imageUrl="/4k-forest-7sfd6znw2ry6hnlt.jpg" title="The climate crisis explained in 10 charts" description="The UN says we could have just 11 years left to limit a climate change catastrophe. Here's how we got here." articleLink="https://www.bbc.com/news/science-environment-46384067"/>
+			<NewsCard imageUrl="/4k-forest-7sfd6znw2ry6hnlt.jpg" title="The climate crisis explained in 10 charts" description="The UN says we could have just 11 years left to limit a climate change catastrophe. Here's how we got here." articleLink="https://www.bbc.com/news/science-environment-46384067"/>
+			<NewsCard imageUrl="/4k-forest-7sfd6znw2ry6hnlt.jpg" title="The climate crisis explained in 10 charts" description="The UN says we could have just 11 years left to limit a climate change catastrophe. Here's how we got here." articleLink="https://www.bbc.com/news/science-environment-46384067"/>
 			</div>
 	  </div>
 
