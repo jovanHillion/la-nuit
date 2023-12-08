@@ -1,54 +1,55 @@
-import NextLink from "next/link";
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code"
-import { button as buttonStyles } from "@nextui-org/theme";
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
+"use client";
+import { Logo, LogoWithoutText } from "@/components/icons";
+import { HomeLottieFile } from "@/components/homeLottie";
+import { GradeContainer } from "@/components/grade";
+import NewsCard from "@/components/newsCard";
 
 export default function Home() {
-	return (
-		<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-			<div className="inline-block max-w-lg text-center justify-center">
-				<h1 className={title()}>Make&nbsp;</h1>
-				<h1 className={title({ color: "violet" })}>beautiful&nbsp;</h1>
-				<br />
-				<h1 className={title()}>
-					websites regardless of your design experience.
-				</h1>
-				<h2 className={subtitle({ class: "mt-4" })}>
-					Beautiful, fast and modern React UI library.
-				</h2>
+  return (
+    
+    <div className="pt-[30%] h-full">
+      <div className="flex justify-between h-full pt-[15%]">
+        <div className="">
+          <div className="flex flex-row w-[100%] space-x-[650px]">
+            <div className="font-bold text-[48px] text-primary-800 max-w-[690px]">
+              <span className="text-primary-200">S</span>pring
+              <span className="text-primary-200">Y</span>our
+              <span className="text-primary-200">L</span>ife, the fast way to
+              <span className="text-primary-200"> Reduce </span>your individual
+              <span className="text-primary-200"> C</span>arbon
+              <span className="text-primary-200"> F</span>ootprint
+            </div>
+            <div className="flex justify-center items-center">
+              <LogoWithoutText width={150} height={150}/>
+            </div>
+          </div>
+          <div className="font-normal text-[28px] text-primary-700 max-w-[690px]">
+            What do you think about a little QUIZZ to evaluate your carbon footprint
+          </div>
+          <HomeLottieFile/>
+        </div>
+        
+      </div>
+      <div className="mt-[5%] mb-[5%]">
+        <button className="bg-primary-500 hover:bg-primary-700 w-[139px] h-[62px] rounded-[25px] text-[28px] font-bold">Quizz</button>
+      </div>
+	  <div className="bg-primary-600 h-full w-full py-[2%]">
+			<div className="flex justify-center text-primary-900 font-bold text-[38px]">
+				News
 			</div>
+			<div className="flex flex-row justify-around">
+			<NewsCard imageUrl="/4k-forest-7sfd6znw2ry6hnlt.jpg" title="The climate crisis explained in 10 charts" description="The UN says we could have just 11 years left to limit a climate change catastrophe. Here's how we got here." articleLink="https://www.bbc.com/news/science-environment-46384067"/>
+			<NewsCard imageUrl="/4k-forest-7sfd6znw2ry6hnlt.jpg" title="The climate crisis explained in 10 charts" description="The UN says we could have just 11 years left to limit a climate change catastrophe. Here's how we got here." articleLink="https://www.bbc.com/news/science-environment-46384067"/>
+			<NewsCard imageUrl="/4k-forest-7sfd6znw2ry6hnlt.jpg" title="The climate crisis explained in 10 charts" description="The UN says we could have just 11 years left to limit a climate change catastrophe. Here's how we got here." articleLink="https://www.bbc.com/news/science-environment-46384067"/>
+			</div>
+	  </div>
 
-			<div className="flex gap-3">
-				<Link
-					isExternal
-					as={NextLink}
-					href={siteConfig.links.docs}
-					className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
-				>
-					Documentation
-				</Link>
-				<Link
-					isExternal
-					as={NextLink}
-					className={buttonStyles({ variant: "bordered", radius: "full" })}
-					href={siteConfig.links.github}
-				>
-					<GithubIcon size={20} />
-					GitHub
-				</Link>
-			</div>
-
-			<div className="mt-8">
-				<Snippet hideSymbol hideCopyButton variant="flat">
-					<span>
-						Get started by editing <Code color="primary">app/page.tsx</Code>
-					</span>
-				</Snippet>
-			</div>
-		</section>
-	);
+	  <div className="flex items-center flex-col py-[10%] space-y-12">
+		<div className="text-primary-50 font-bold text-[38px] py-[15px] px-[120px] bg-primary-500 rounded-full">
+			Scoreboard
+		</div>
+	  </div>
+    </div>
+    
+  );
 }
