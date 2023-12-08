@@ -7,6 +7,7 @@ import {
 } from "@/components/icons";
 import { Button, Image, Input } from "@nextui-org/react";
 import { useEffect, useState } from "react";
+import { EyeFilledIcon, EyeSlashFilledIcon } from "@/components/icons";
 
 interface RegisterJson {
   email: string;
@@ -34,6 +35,11 @@ export default function Register() {
     password: "",
   });
   const [error, setError] = useState<string>("");
+  const [isVisible, setIsVisible] = useState(false);
+  const toggleVisibility = () => setIsVisible(!isVisible);
+
+  const [isVisibleVerif, setIsVisibleVerif] = useState(false);
+  const toggleVisibilityVerif = () => setIsVisibleVerif(!isVisibleVerif);
 
   const register = async () => {
     if (
@@ -139,7 +145,7 @@ export default function Register() {
               variant="underlined"
               placeholder="  Username"
               className="border-primary-300 border-b-2"
-              value={"  " + registerJson.username}
+              value={registerJson.username}
               onChange={(e) => {
                 setRegisterJson({
                   ...registerJson,
@@ -152,7 +158,7 @@ export default function Register() {
               variant="underlined"
               className="border-primary-300 border-b-2"
               placeholder="  Email"
-              value={"  " + registerJson.email}
+              value={registerJson.email}
               onChange={(e) => {
                 setRegisterJson({
                   ...registerJson,
@@ -165,26 +171,54 @@ export default function Register() {
               variant="underlined"
               className="border-primary-300 border-b-2"
               placeholder="  Password"
-              value={"  " + registerJson.password}
+              value={registerJson.password}
               onChange={(e) => {
                 setRegisterJson({
                   ...registerJson,
                   password: e.target.value,
                 });
               }}
+              endContent={
+                <button
+                  className="focus:outline-none"
+                  type="button"
+                  onClick={toggleVisibility}
+                >
+                  {isVisible ? (
+                    <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+                  ) : (
+                    <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+                  )}
+                </button>
+              }
+              type={isVisible ? "text" : "password"}
               startContent={<PasswordIcon width={20} height={20} />}
             />
             <Input
               className="border-primary-300 border-b-2"
               variant="underlined"
               placeholder="  Confirm password"
-              value={"  " + registerJson.passwordVerif}
+              value={registerJson.passwordVerif}
               onChange={(e) => {
                 setRegisterJson({
                   ...registerJson,
                   passwordVerif: e.target.value,
                 });
               }}
+              endContent={
+                <button
+                  className="focus:outline-none"
+                  type="button"
+                  onClick={toggleVisibilityVerif}
+                >
+                  {isVisibleVerif ? (
+                    <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+                  ) : (
+                    <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+                  )}
+                </button>
+              }
+              type={isVisibleVerif ? "text" : "password"}
               startContent={<PasswordIcon width={20} height={20} />}
             />
             <Button
